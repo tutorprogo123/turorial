@@ -13,6 +13,3 @@ urlpatterns = [
   path("login/", views.loginPage, name="login"),
   path("logout", views.logoutUser, name="logout"),
 ]
-
-
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
