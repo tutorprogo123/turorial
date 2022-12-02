@@ -23,7 +23,6 @@ https://stackoverflow.com/questions/6370690/media-queries-how-to-target-desktop-
 今回はタブレットなし、スマホ用のみ
  */
 
-
  @media screen and (max-width: 700px) {
   header {
     display: block;

@@ -1,8 +1,11 @@
 from django.urls import path
 from . import views
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
-  path('top/', views.top, name='top'),
+  path('', views.top, name='top'),
   path("add/", views.add, name="add"),
   path("update/<int:id>", views.update, name="update"),
   path("delete/<int:id>", views.delete, name="delete"),
@@ -10,3 +13,6 @@ urlpatterns = [
   path("login/", views.loginPage, name="login"),
   path("logout", views.logoutUser, name="logout"),
 ]
+
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
