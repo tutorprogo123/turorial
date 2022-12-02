@@ -1,0 +1,28 @@
+{% extends 'password_manager/base.html' %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'password_manager/add.css' %}">
+{% endblock css %}
+
+{% block content %}
+
+<form action="{% url 'add' %}" method="POST">
+  {% csrf_token %}
+  {% comment %} {{ form }}
+  {{ form.as_p }} {% endcomment %}
+
+  {% for field in form %} 
+  <div>
+    {{ field.label_tag}}
+    {{ field }}
+  </div>
+  {% endfor %}
+
+  <button>追加</button>
+</form>
+
+
+
+{% endblock content %}

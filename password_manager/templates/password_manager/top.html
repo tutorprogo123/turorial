@@ -1,0 +1,37 @@
+{% extends 'password_manager/base.html' %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'password_manager/top.css' %}">
+{% endblock css %}
+
+{% block content %}
+
+  <hr>
+  <table border="1">
+    <tr>
+      <th>アカウント</th>
+      <th>ユーザー名</th>
+      <th>パスワード</th>
+      <th>変更</th>
+      <th>削除</th>
+    </tr>
+    {% for account in accounts %}
+    <tr>
+      <td>{{ account.title }}</td>
+      <td>{{ account.username }}</td>
+      <td>{{ account.password }}</td>
+      <td><button><a href="{% url 'update' account.id %}">変更</a></button></td>
+      <td><button><a href="{% url 'delete' account.id %}">削除</a></button></td>
+    </tr>
+    {% endfor %}
+  </table>
+  <hr>
+  <div class="btn">
+    <button><a href="{% url 'add' %}">追加する</a></button>
+  </div>
+
+
+
+{% endblock content %}

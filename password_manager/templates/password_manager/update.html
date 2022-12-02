@@ -1,0 +1,27 @@
+{% extends 'password_manager/base.html' %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'password_manager/update.css' %}">
+{% endblock css %}
+
+
+{% block content %}
+
+<form action="{% url 'update' account.id %}" method="POST">
+  {% csrf_token %}
+
+  {% for field in form %} 
+  <div>
+    {{ field.label_tag}}
+    {{ field }}
+  </div>
+  {% endfor %}
+
+  <button>変更</button>
+</form>
+
+
+
+{% endblock content %}

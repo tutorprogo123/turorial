@@ -1,0 +1,23 @@
+{% extends 'password_manager/base.html' %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'password_manager/delete.css' %}">
+{% endblock css %}
+
+
+{% block content %}
+
+<form action="{% url 'delete' account.id %}" method="POST">
+  {% csrf_token %}
+
+  <h3>本当に削除しますか？</h3>
+
+  <a href="{% url 'top' %}">キャンセル</a>
+  <button>削除</button>
+</form>
+
+
+
+{% endblock content %}

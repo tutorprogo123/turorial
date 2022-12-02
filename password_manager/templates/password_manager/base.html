@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'password_manager/base.css' %}">
+  {% block css %}
+  {% endblock css %}
+  <title>パスワード管理システム</title>
+</head>
+<body>
+  <header>
+
+    {% if request.user.is_authenticated %}
+    <h1>パスワード管理システム</h1>
+    {% comment %} <ul>
+      <li>ログイン</li>
+      <li>ログアウト</li>
+    </ul>   {% endcomment %}
+    <ul>
+      <li>ログイン中: {{ request.user }}</li>
+      <li><a href="{% url 'logout' %}">ログアウト</a></li>
+    </ul>
+    {% else %}
+    <h1>パスワード管理システム</h1>
+    <ul>
+    </ul>
+    {% endif %}
+
+  </header>
+
+  {% block content %}
+  {% endblock content %}
+</body>
+</html>

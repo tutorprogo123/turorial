@@ -1,0 +1,37 @@
+header {
+  display: flex;
+  justify-content: space-around;
+}
+
+header ul {
+  list-style-type: none;
+}
+
+header ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul li {
+  margin-right: 3rem;
+}
+
+
+/* media query　例
+https://stackoverflow.com/questions/6370690/media-queries-how-to-target-desktop-tablet-and-mobile
+今回はタブレットなし、スマホ用のみ
+ */
+
+
+ @media screen and (max-width: 700px) {
+  header {
+    display: block;
+  }
+
+  header h1 {
+    text-align: center;
+  }
+  
+
+ }
